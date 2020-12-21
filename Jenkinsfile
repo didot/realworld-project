@@ -8,6 +8,10 @@ pipeline {
     }
   }
 
+  options {
+    timestamps()
+  }
+
   stages {
     stage('Build') {
       steps {
