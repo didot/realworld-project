@@ -39,7 +39,7 @@ pipeline {
               referenceJobName: "${env.JOB_NAME.substring(0, env.JOB_NAME.lastIndexOf('/') + 1) + 'main'}")
       recordIssues(
               enabledForFailure: true,
-              tool: checkStyle(pattern: 'build/reports/checksyle/*.xml'),
+              tool: checkStyle(pattern: 'build/reports/checkstyle/*.xml'),
               referenceJobName: "${env.JOB_NAME.substring(0, env.JOB_NAME.lastIndexOf('/') + 1) + 'main'}")
     }
   }
