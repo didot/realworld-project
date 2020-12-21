@@ -4,6 +4,7 @@ plugins {
     id 'java'
     id 'idea'
     id 'eclipse'
+    id 'com.github.spotbugs' version '4.6.0'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -17,6 +18,10 @@ repositories {
 
 configurations {
     compileOnly.extendsFrom annotationProcessor
+}
+
+spotbugs {
+    ignoreFailures = true
 }
 
 dependencies {
