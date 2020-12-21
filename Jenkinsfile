@@ -15,9 +15,24 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh './gradlew compileJava compileTestJava'
+      }
+    }
+    stage('Check') {
+      steps {
         sh './gradlew test'
+      }
+    }
+    stage('Assemble') {
+      steps {
         sh './gradlew assemble'
       }
+    }
+  }
+
+  post {
+    always {
+      recordIssues(enabledForFailure: true, tool: spotBugs(pattern: 'build/reports/spotbugs/*.xml'))
     }
   }
 }
