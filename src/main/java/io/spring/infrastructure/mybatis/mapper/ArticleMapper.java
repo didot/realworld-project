@@ -7,19 +7,20 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ArticleMapper {
-    void insert(@Param("article") Article article);
 
-    Article findById(@Param("id") String id);
+  void insert(@Param("article") Article article);
 
-    Tag findTag(@Param("tagName") String tagName);
+  Article findById(@Param("id") String id);
 
-    void insertTag(@Param("tag") Tag tag);
+  Tag findTag(@Param("tagName") String tagName);
 
-    void insertArticleTagRelation(@Param("articleId") String articleId, @Param("tagId") String tagId);
+  void insertTag(@Param("tag") Tag tag);
 
-    Article findBySlug(@Param("slug") String slug);
+  void insertArticleTagRelation(@Param("articleId") String articleId, @Param("tagId") String tagId);
 
-    void update(@Param("article") Article article);
+  Article findBySlug(@Param("slug") String slug);
 
-    void delete(@Param("id") String id);
+  void update(@Param("article") Article article);
+
+  void delete(@Param("id") String id);
 }
