@@ -10,8 +10,10 @@ pipeline {
 
   stages {
     stage('Build') {
-      sh './gradlew test'
-      sh './gradlew assemble'
+      steps {
+        sh './gradlew test'
+        sh './gradlew assemble'
+      }
     }
   }
 }
