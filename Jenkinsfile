@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Check') {
       steps {
-        sh './gradlew test'
+        sh './gradlew check'
       }
     }
     stage('Assemble') {
