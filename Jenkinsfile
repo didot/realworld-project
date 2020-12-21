@@ -10,6 +10,7 @@ pipeline {
 
   options {
     timestamps()
+    disableConcurrentBuilds()
   }
 
   stages {
@@ -32,7 +33,10 @@ pipeline {
 
   post {
     always {
-      recordIssues(enabledForFailure: true, tool: spotBugs(pattern: 'build/reports/spotbugs/*.xml'))
+      recordIssues(
+              enabledForFailure: true,
+              tool: spotBugs(pattern: 'build/reports/spotbugs/*.xml'),
+              referenceJobName: "${env.JOB_NAME.substring(0, env.JOB_NAME.lastIndexOf('/') + 1) + 'main'}")
     }
   }
 }
