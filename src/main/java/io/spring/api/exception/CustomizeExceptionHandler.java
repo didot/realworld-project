@@ -1,5 +1,6 @@
 package io.spring.api.exception;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
 public class CustomizeExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({InvalidRequestException.class})
+    @SuppressFBWarnings("BC_UNCONFIRMED_CAST")
     public ResponseEntity<Object> handleInvalidRequest(RuntimeException e, WebRequest request) {
         InvalidRequestException ire = (InvalidRequestException) e;
 
