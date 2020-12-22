@@ -11,12 +11,13 @@ import org.joda.time.DateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommentData {
-    private String id;
-    private String body;
-    @JsonIgnore
-    private String articleId;
-    private DateTime createdAt;
-    private DateTime updatedAt;
-    @JsonProperty("author")
-    private ProfileData profileData;
+
+  private String id;
+  private String body;
+  @JsonIgnore
+  private String articleId;
+  private DateTime createdAt;
+  private DateTime updatedAt;
+  @JsonProperty("author")
+  private ProfileData profileData;
 }

@@ -1,5 +1,7 @@
 package io.spring.application.tag;
 
+import static org.junit.Assert.assertTrue;
+
 import io.spring.application.TagsQueryService;
 import io.spring.core.article.Article;
 import io.spring.core.article.ArticleRepository;
@@ -11,21 +13,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertTrue;
-
 @RunWith(SpringRunner.class)
 @MybatisTest
 @Import({TagsQueryService.class, MyBatisArticleRepository.class})
 public class TagsQueryServiceTest {
-    @Autowired
-    private TagsQueryService tagsQueryService;
 
-    @Autowired
-    private ArticleRepository articleRepository;
+  @Autowired
+  private TagsQueryService tagsQueryService;
 
-    @Test
-    public void should_get_all_tags() {
-        articleRepository.save(new Article("test", "test", "test", new String[]{"java"}, "123"));
-        assertTrue(tagsQueryService.allTags().contains("java"));
-    }
+  @Autowired
+  private ArticleRepository articleRepository;
+
+  @Test
+  public void should_get_all_tags() {
+    articleRepository.save(new Article("test", "test", "test", new String[]{"java"}, "123"));
+    assertTrue(tagsQueryService.allTags().contains("java"));
+  }
 }

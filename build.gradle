@@ -4,6 +4,7 @@ plugins {
     id 'java'
     id 'idea'
     id 'eclipse'
+    id 'checkstyle'
     id 'com.github.spotbugs' version '4.6.0'
 }
 
@@ -22,6 +23,17 @@ configurations {
 
 spotbugs {
     ignoreFailures = true
+}
+
+checkstyle {
+    toolVersion = "8.38"
+    configFile = file('config/checkstyle/google_checks.xml')
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled true
+    }
 }
 
 dependencies {
