@@ -36,7 +36,7 @@ public class JacksonCustomizations {
     public void serialize(DateTime value, JsonGenerator gen, SerializerProvider provider)
         throws IOException {
       if (value == null) {
-        gen.writeNull();
+          gen.writeNull();
       } else {
         gen.writeString(ISODateTimeFormat.dateTime().withZoneUTC().print(value));
       }
