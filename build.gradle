@@ -5,7 +5,7 @@ plugins {
     id 'idea'
     id 'eclipse'
     id 'checkstyle'
-    id 'com.github.spotbugs' version '4.7.1'
+    id 'com.github.spotbugs' version '4.3.0'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -47,7 +47,7 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'joda-time:joda-time:2.10.6'
 
-    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.2.0'
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.3.0'
 
     runtimeOnly 'com.h2database:h2'
 
